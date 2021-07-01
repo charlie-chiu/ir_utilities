@@ -1,0 +1,266 @@
+{
+  "alert": {
+    "alertRuleTags": {},
+    "conditions": [
+      {
+        "evaluator": {
+          "params": [
+            50
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "and"
+        },
+        "query": {
+          "params": [
+            "packet loss",
+            "5m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "min"
+        },
+        "type": "query"
+      },
+      {
+        "evaluator": {
+          "params": [
+            300
+          ],
+          "type": "gt"
+        },
+        "operator": {
+          "type": "or"
+        },
+        "query": {
+          "params": [
+            "rtt_avg",
+            "5m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "params": [],
+          "type": "min"
+        },
+        "type": "query"
+      }
+    ],
+    "executionErrorState": "alerting",
+    "for": "1m",
+    "frequency": "1m",
+    "handler": 1,
+    "message": "{{.Host}} alerting:\nPacket Loss is above 50 | Round Trip Time is above 300ms",
+    "name": "{{.Host}}",
+    "noDataState": "alerting",
+    "notifications": [
+      {
+        "uid": "0TpLnu_Gk"
+      },
+      {
+        "uid": "wI4ogbgnk"
+      }
+    ]
+  },
+  "aliasColors": {},
+  "bars": false,
+  "dashLength": 10,
+  "dashes": false,
+  "datasource": "Dedicated-Zabbix",
+  "description": "",
+  "fieldConfig": {
+    "defaults": {
+      "custom": {}
+    },
+    "overrides": []
+  },
+  "fill": 1,
+  "fillGradient": 4,
+  "gridPos": {
+    "h": 9,
+    "w": 24,
+    "x": 0,
+    "y": 0
+  },
+  "hiddenSeries": false,
+  "id": {{.ID}},
+  "legend": {
+    "avg": false,
+    "current": false,
+    "max": false,
+    "min": false,
+    "show": false,
+    "total": false,
+    "values": false
+  },
+  "lines": true,
+  "linewidth": 1,
+  "nullPointMode": "null",
+  "options": {
+    "alertThreshold": true
+  },
+  "percentage": false,
+  "pluginVersion": "7.4.3",
+  "pointradius": 2,
+  "points": false,
+  "renderer": "flot",
+  "repeatDirection": "v",
+  "seriesOverrides": [
+    {
+      "$$hashKey": "object:453",
+      "alias": "/Packet Lost/",
+      "color": "#C4162A",
+      "yaxis": 2
+    },
+    {
+      "$$hashKey": "object:171",
+      "alias": "/rtt_avg/",
+      "color": "#5794F2"
+    }
+  ],
+  "spaceLength": 10,
+  "stack": false,
+  "steppedLine": false,
+  "targets": [
+    {
+      "application": {
+        "filter": ""
+      },
+      "functions": [],
+      "group": {
+        "filter": "/.*/"
+      },
+      "hide": false,
+      "host": {
+        "filter": "/.*/"
+      },
+      "item": {
+        "filter": "/{{.Host}}.*Packet Lost/"
+      },
+      "options": {
+        "disableDataAlignment": false,
+        "showDisabledItems": false,
+        "skipEmptyValues": false,
+        "useZabbixValueMapping": false
+      },
+      "proxy": {
+        "filter": ""
+      },
+      "queryType": 0,
+      "refId": "packet loss",
+      "resultFormat": "time_series",
+      "table": {
+        "skipEmptyValues": false
+      },
+      "tags": {
+        "filter": ""
+      },
+      "trigger": {
+        "filter": ""
+      },
+      "triggers": {
+        "acknowledged": 2,
+        "count": true,
+        "minSeverity": 3
+      }
+    },
+    {
+      "application": {
+        "filter": ""
+      },
+      "functions": [],
+      "group": {
+        "filter": "/.*/"
+      },
+      "hide": false,
+      "host": {
+        "filter": "/.*/"
+      },
+      "item": {
+        "filter": "/{{.Host}}.*rtt_avg/"
+      },
+      "options": {
+        "disableDataAlignment": false,
+        "showDisabledItems": false,
+        "skipEmptyValues": false,
+        "useZabbixValueMapping": false
+      },
+      "proxy": {
+        "filter": ""
+      },
+      "queryType": 0,
+      "refId": "rtt_avg",
+      "resultFormat": "time_series",
+      "table": {
+        "skipEmptyValues": false
+      },
+      "tags": {
+        "filter": ""
+      },
+      "trigger": {
+        "filter": ""
+      },
+      "triggers": {
+        "acknowledged": 2,
+        "count": true,
+        "minSeverity": 3
+      }
+    }
+  ],
+  "thresholds": [
+    {
+      "colorMode": "critical",
+      "fill": true,
+      "line": true,
+      "op": "gt",
+      "value": 0,
+      "visible": true
+    }
+  ],
+  "timeFrom": null,
+  "timeRegions": [],
+  "timeShift": null,
+  "title": "{{.Host}} Alerting",
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  },
+  "transformations": [],
+  "type": "graph",
+  "xaxis": {
+    "buckets": null,
+    "mode": "time",
+    "name": null,
+    "show": true,
+    "values": []
+  },
+  "yaxes": [
+    {
+      "$$hashKey": "object:45",
+      "decimals": null,
+      "format": "ms",
+      "label": "rtt avg",
+      "logBase": 1,
+      "max": "300",
+      "min": null,
+      "show": true
+    },
+    {
+      "$$hashKey": "object:46",
+      "format": "percent",
+      "label": "Packet Loss",
+      "logBase": 1,
+      "max": "100",
+      "min": "0",
+      "show": true
+    }
+  ],
+  "yaxis": {
+    "align": false,
+    "alignLevel": null
+  }
+}
