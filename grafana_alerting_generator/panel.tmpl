@@ -1,0 +1,464 @@
+{
+  "aliasColors": {
+    "minimal": "dark-red",
+    "HQS Proxy Server [ {{.Host}} ] Packet Lost": "super-light-red"
+  },
+  "dashLength": 10,
+  "datasource": "Dedicated-Zabbix",
+  "fieldConfig": {
+    "defaults": {
+      "custom": {}
+    },
+    "overrides": []
+  },
+  "fill": 3,
+  "gridPos": {
+    "h": 10,
+    "w": 24,
+    "x": 0,
+    "y": 30
+  },
+  "id": {{.ID}},
+  "legend": {
+    "alignAsTable": true,
+    "avg": false,
+    "current": true,
+    "max": true,
+    "min": true,
+    "show": true,
+    "total": false,
+    "values": true
+  },
+  "lines": true,
+  "nullPointMode": "null",
+  "options": {
+    "alertThreshold": false
+  },
+  "pluginVersion": "7.4.3",
+  "pointradius": 2,
+  "renderer": "flot",
+  "seriesOverrides": [
+    {
+      "$$hashKey": "object:951",
+      "alias": "minimal",
+      "linewidth": 2
+    }
+  ],
+  "spaceLength": 10,
+  "targets": [
+    {
+      "application": {
+        "filter": ""
+      },
+      "functions": [],
+      "group": {
+        "filter": "hqs_online"
+      },
+      "hide": false,
+      "host": {
+        "filter": "hqs-Ali-moniter-shanghai01"
+      },
+      "item": {
+        "filter": "/{{.Host}}.*Packet Lost/"
+      },
+      "options": {
+        "disableDataAlignment": false,
+        "showDisabledItems": false,
+        "skipEmptyValues": false,
+        "useZabbixValueMapping": false
+      },
+      "proxy": {
+        "filter": ""
+      },
+      "queryType": 0,
+      "refId": "Packet Loss of ShangHai",
+      "resultFormat": "time_series",
+      "table": {
+        "skipEmptyValues": false
+      },
+      "tags": {
+        "filter": ""
+      },
+      "trigger": {
+        "filter": ""
+      },
+      "triggers": {
+        "acknowledged": 2,
+        "count": true,
+        "minSeverity": 3
+      }
+    },
+    {
+      "application": {
+        "filter": ""
+      },
+      "functions": [],
+      "group": {
+        "filter": "hqs_online"
+      },
+      "hide": false,
+      "host": {
+        "filter": "hqs-Ali-moniter-chengdu01"
+      },
+      "item": {
+        "filter": "/{{.Host}}.*Packet Lost/"
+      },
+      "options": {
+        "disableDataAlignment": false,
+        "showDisabledItems": false,
+        "skipEmptyValues": false,
+        "useZabbixValueMapping": false
+      },
+      "proxy": {
+        "filter": ""
+      },
+      "queryType": 0,
+      "refId": "Packet Loss of ChengDu",
+      "resultFormat": "time_series",
+      "table": {
+        "skipEmptyValues": false
+      },
+      "tags": {
+        "filter": ""
+      },
+      "trigger": {
+        "filter": ""
+      },
+      "triggers": {
+        "acknowledged": 2,
+        "count": true,
+        "minSeverity": 3
+      }
+    },
+    {
+      "application": {
+        "filter": ""
+      },
+      "functions": [],
+      "group": {
+        "filter": "hqs_online"
+      },
+      "hide": false,
+      "host": {
+        "filter": "hqs-ali-moniter-beijing01"
+      },
+      "item": {
+        "filter": "/{{.Host}}.*Packet Lost/"
+      },
+      "options": {
+        "disableDataAlignment": false,
+        "showDisabledItems": false,
+        "skipEmptyValues": false,
+        "useZabbixValueMapping": false
+      },
+      "proxy": {
+        "filter": ""
+      },
+      "queryType": 0,
+      "refId": "Packet Loss of BeiJing",
+      "resultFormat": "time_series",
+      "table": {
+        "skipEmptyValues": false
+      },
+      "tags": {
+        "filter": ""
+      },
+      "trigger": {
+        "filter": ""
+      },
+      "triggers": {
+        "acknowledged": 2,
+        "count": true,
+        "minSeverity": 3
+      }
+    },
+    {
+      "application": {
+        "filter": ""
+      },
+      "functions": [],
+      "group": {
+        "filter": "hqs_online"
+      },
+      "hide": false,
+      "host": {
+        "filter": "hqs-Ali-moniter-shenzhen01"
+      },
+      "item": {
+        "filter": "/{{.Host}}.*Packet Lost/"
+      },
+      "options": {
+        "disableDataAlignment": false,
+        "showDisabledItems": false,
+        "skipEmptyValues": false,
+        "useZabbixValueMapping": false
+      },
+      "proxy": {
+        "filter": ""
+      },
+      "queryType": 0,
+      "refId": "Packet Loss of ShenZhen",
+      "resultFormat": "time_series",
+      "table": {
+        "skipEmptyValues": false
+      },
+      "tags": {
+        "filter": ""
+      },
+      "trigger": {
+        "filter": ""
+      },
+      "triggers": {
+        "acknowledged": 2,
+        "count": true,
+        "minSeverity": 3
+      }
+    },
+    {
+      "refId": "min of Packet Loss",
+      "hide": false,
+      "resultFormat": "time_series",
+      "queryType": 0,
+      "group": {
+        "filter": "hqs_online"
+      },
+      "host": {
+        "filter": "/.*moniter.*/"
+      },
+      "application": {
+        "filter": ""
+      },
+      "item": {
+        "filter": "/{{.Host}}.*Packet Lost/"
+      },
+      "functions": [
+        {
+          "def": {
+            "name": "min",
+            "category": "Aggregate",
+            "params": [
+              {
+                "name": "interval",
+                "type": "string"
+              }
+            ],
+            "defaultParams": [
+              "1m"
+            ]
+          },
+          "params": [
+            "2m"
+          ],
+          "text": "min(2m)",
+          "$$hashKey": "object:3416"
+        },
+        {
+          "def": {
+            "name": "setAlias",
+            "category": "Alias",
+            "params": [
+              {
+                "name": "alias",
+                "type": "string"
+              }
+            ],
+            "defaultParams": []
+          },
+          "params": [
+            "minimal"
+          ],
+          "text": "setAlias(minimal)",
+          "$$hashKey": "object:3417"
+        }
+      ],
+      "triggers": {
+        "count": true,
+        "minSeverity": 3,
+        "acknowledged": 2
+      },
+      "trigger": {
+        "filter": ""
+      },
+      "tags": {
+        "filter": ""
+      },
+      "proxy": {
+        "filter": ""
+      },
+      "options": {
+        "showDisabledItems": false,
+        "skipEmptyValues": false,
+        "disableDataAlignment": false,
+        "useZabbixValueMapping": false
+      },
+      "table": {
+        "skipEmptyValues": false
+      }
+    }
+  ],
+  "timeRegions": [],
+  "title": "Packet Loss of {{.Host}} (multi query)",
+  "tooltip": {
+    "shared": true,
+    "sort": 0,
+    "value_type": "individual"
+  },
+  "type": "graph",
+  "xaxis": {
+    "buckets": null,
+    "mode": "time",
+    "name": null,
+    "show": true,
+    "values": []
+  },
+  "yaxes": [
+    {
+      "$$hashKey": "object:699",
+      "format": "percent",
+      "label": null,
+      "logBase": 1,
+      "max": "100",
+      "min": "0",
+      "show": true
+    },
+    {
+      "$$hashKey": "object:700",
+      "format": "short",
+      "label": null,
+      "logBase": 1,
+      "max": null,
+      "min": null,
+      "show": false
+    }
+  ],
+  "yaxis": {
+    "align": false,
+    "alignLevel": null
+  },
+  "thresholds": [
+    {
+      "value": 30,
+      "op": "gt",
+      "visible": true,
+      "fill": false,
+      "line": false,
+      "colorMode": "critical"
+    }
+  ],
+  "alert": {
+    "conditions": [
+      {
+        "type": "query",
+        "query": {
+          "params": [
+            "Packet Loss of ShangHai",
+            "5m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "type": "min",
+          "params": []
+        },
+        "evaluator": {
+          "type": "gt",
+          "params": [
+            30
+          ]
+        },
+        "operator": {
+          "type": "and"
+        }
+      },
+      {
+        "type": "query",
+        "query": {
+          "params": [
+            "Packet Loss of ChengDu",
+            "5m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "type": "min",
+          "params": []
+        },
+        "evaluator": {
+          "type": "gt",
+          "params": [
+            30
+          ]
+        },
+        "operator": {
+          "type": "and"
+        }
+      },
+      {
+        "type": "query",
+        "query": {
+          "params": [
+            "Packet Loss of BeiJing",
+            "5m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "type": "min",
+          "params": []
+        },
+        "evaluator": {
+          "type": "gt",
+          "params": [
+            30
+          ]
+        },
+        "operator": {
+          "type": "and"
+        }
+      },
+      {
+        "type": "query",
+        "query": {
+          "params": [
+            "Packet Loss of ShenZhen",
+            "5m",
+            "now"
+          ]
+        },
+        "reducer": {
+          "type": "min",
+          "params": []
+        },
+        "evaluator": {
+          "type": "gt",
+          "params": [
+            30
+          ]
+        },
+        "operator": {
+          "type": "and"
+        }
+      }
+    ],
+    "noDataState": "alerting",
+    "executionErrorState": "alerting",
+    "frequency": "1m",
+    "handler": 1,
+    "notifications": [],
+    "for": "0",
+    "alertRuleTags": {},
+    "name": "{{.Host}}"
+  },
+  "linewidth": 0,
+  "bars": false,
+  "dashes": false,
+  "decimals": 0,
+  "fillGradient": 0,
+  "hiddenSeries": false,
+  "percentage": false,
+  "points": false,
+  "stack": false,
+  "steppedLine": false,
+  "timeFrom": null,
+  "timeShift": null
+}
